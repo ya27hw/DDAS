@@ -1,3 +1,5 @@
+# NOTE: main.py is not currently being worked on. It's only used as a reference before we switch over to mediapipe fully 
+
 # Driver Drowsiness Awareness System
 This project is a driver drowsiness awareness system. Developed for the Samsung Innovation Campus capstone project.
 
@@ -30,7 +32,7 @@ pip install -r requirements.txt
 ## Step 3
 Run the application
 ```shell
-python main.py
+python mp.py
 ```
 
 # Credits
