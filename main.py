@@ -39,3 +39,25 @@ while True:
 
     # Face detection
     faces = detector(gray_frame, 0)
+
+    for face in faces:
+        # Get the face landmarks from the shape predictor
+        face_landmarks = predictor(gray_frame, face)
+
+        # Then convert it to a numpy array for reading
+        face_landmarks_np = face_utils.shape_to_np(face_landmarks)
+
+        # Draw the face landmarks
+        for (x, y) in face_landmarks:
+            cv2.circle(frame, (x, y), 1, (0, 255, 0), -1)
+        
+        cv2.imshow("Title", frame)
+
+        # Listen to key presses from 'q'
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+# Outside the main loop, this code runs when the application is closed.
+cv2.destroyAllWindows()
+video_stream.release()
+print("Done.")
