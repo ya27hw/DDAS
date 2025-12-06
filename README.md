@@ -36,6 +36,3 @@ Run the application
 ```shell
 python mp.py
 ```
-
-# Credits
-Dlib for face detection and tracking
