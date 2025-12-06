@@ -33,7 +33,8 @@ while True:
         print("Error reading frame.")
         break
 
-    # Adjust frame size to 450x250 for faster operation, and use grayscale as well
+    # Adjust frame size to 450x250 for faster operation
+    # use grayscale as well
     frame = cv2.resize(frame, (450, 250))
     grayscale_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
@@ -51,7 +52,7 @@ while True:
         for (x, y) in face_landmarks:
             cv2.circle(frame, (x, y), 1, (0, 255, 0), -1)
         
-        cv2.imshow("Title", frame)
+        cv2.imshow("DDAS - Face Tracking", frame)
 
         # Listen to key presses from 'q'
         if cv2.waitKey(1) & 0xFF == ord('q'):
