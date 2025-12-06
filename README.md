@@ -32,3 +32,6 @@ Run the application
 ```shell
 python main.py
 ```
+
+# Credits
+Dlib for face detection and tracking
