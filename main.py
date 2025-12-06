@@ -106,7 +106,7 @@ while True:
         for (x, y) in face_landmarks:
             cv2.circle(frame, (x, y), 1, (0, 255, 0), -1)
         
-        cv2.imshow("DDAS System", frame)
+        cv2.imshow("DDAS - Face Tracking", frame)
 
         # Listen to key presses from 'q'
         key = cv2.waitKey(1) & 0xFF
