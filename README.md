@@ -3,6 +3,8 @@
 # Driver Drowsiness Awareness System
 This project is a driver drowsiness awareness system. Developed for the Samsung Innovation Campus capstone project.
 
+Requirements are basic, as only a PC with a webcam is needed to run the application. The application is built using the MediaPipe model, which is a Google Tensorflow model that is trained on the MediaPipe dataset. It's much faster than dlib, and much less resource intensive compared to dlib/cnn. 
+
 Current contributors:
 - [Yousuf Ashraf](https://github.com/ya27hw)
 
