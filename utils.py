@@ -1,31 +1,34 @@
 import numpy as np
 from scipy.spatial import distance as dist
 
-def draw_hull(cv2, frame, landmarks, idx):
+
+def draw_hull(cv2, frame, landmarks, idx, color=(0, 255, 0)):
     """
-    Draws a convex hull around a set of points on a given frame.
+    Draws a convex hull around a set of points on a frame.
 
     Parameters
     ----------
-    cv2 : module
-        OpenCV module
-    frame : ndarray
-        The frame to draw on
-    landmarks : array-like
-        The face landmarks to extract points from
-    idx : array-like
-        The indices of the face landmarks to extract points from
+    cv2 : object
+        The OpenCV library object.
+    frame : numpy.ndarray
+        The frame on which to draw the convex hull.
+    landmarks : dlib.full_object_detection
+        The face landmarks object from which to extract points.
+    idx : list
+        The indices of the points to extract.
     color : tuple, optional
-        The color to draw the hull in, defaults to (0,255,0)
+        The color of the convex hull. Defaults to (0, 255, 0), i.e. green.
 
     Returns
     -------
     None
     """
+
     height, width = frame.shape[:2]
-    points = np.array([[int(landmarks[i].x * width), int(landmarks[i].y * height)] for i in idx])
+    points = np.array(
+        [[int(landmarks[i].x * width), int(landmarks[i].y * height)] for i in idx])
     hull = cv2.convexHull(points)
-    cv2.drawContours(frame, [hull], -1, (0, 255, 0), 1)
+    cv2.drawContours(frame, [hull], -1, color, 1)
 
 
 def extract_points(face_landmarks, idx) -> np.ndarray:
@@ -44,11 +47,10 @@ def extract_points(face_landmarks, idx) -> np.ndarray:
     numpy.ndarray
         A numpy array containing the extracted points
     """
-    return np.array([ [face_landmarks[i].x, face_landmarks[i].y] for i in idx ])
+    return np.array([[face_landmarks[i].x, face_landmarks[i].y] for i in idx])
 
 
 def eye_aspect_ratio(points) -> float:
-    
     """
     Calculate the aspect ratio of the eye region.
 
@@ -95,5 +97,4 @@ def mouth_aspect_ratio(mouth) -> float:
     lower = np.array([mouth[14].x, mouth[14].y])
     right = np.array([mouth[308].x, mouth[308].y])
     left = np.array([mouth[78].x, mouth[78].y])
-    return dist.euclidean(upper,lower) / dist.euclidean(left,right)
-    
+    return dist.euclidean(upper, lower) / dist.euclidean(left, right)
