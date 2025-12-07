@@ -23,7 +23,6 @@ Or on Windows:
 venv\Scripts\activate.bat
 ```
 
-`Note: Install CMake tools. If on Windows, you need to run the Visual Studio installer. If on Linux, see instructions for your specific distro.`
 
 ## Step 2
 Install requirements
